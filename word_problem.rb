@@ -15,13 +15,18 @@ class WordProblem
   def translation
     calculation = []
     word_string.each do |word|
-      calculation << word.to_i if word.to_i != 0
+      calculation << word.to_i unless alphabet_check(word)
       calculation << :+ if word == 'plus'
       calculation << :- if word == 'minus'
       calculation << :* if word == 'multiplied'
       calculation << :/ if word == 'divided'
     end
     calculator(calculation)
+  end
+
+  def alphabet_check(word)
+    alphabet = [*"a".."z"]
+     word.chars.any? {|char| alphabet.include?(char)}
   end
 
   def calculator(calculation)
