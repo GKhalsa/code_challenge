@@ -26,7 +26,7 @@ class WordProblem
 
   def alphabet_check(word)
     alphabet = [*"a".."z"]
-     word.chars.any? {|char| alphabet.include?(char)}
+    word.chars.any? {|char| alphabet.include?(char)}
   end
 
   def calculator(calculation)
